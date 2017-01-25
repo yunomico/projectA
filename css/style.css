@@ -1,155 +1,132 @@
-/*
- * Globals
- */
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed');
 
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
+html , body{
+  background-color: #282827;
 }
-
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
+*{
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 
-/*
- * Base structure
- */
 
-html,
-body {
-  height: 100%;
-  background-color: #333;
-}
-body {
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.5);
-}
+/* Large desktop */
+@media (min-width: 1200px) { 
 
-/* Extra markup and styles for table-esque vertical and horizontal centering */
-.site-wrapper {
-  display: table;
-  width: 100%;
-  height: 100%; /* For at least Firefox */
-  min-height: 100%;
-  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-}
-.site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
-}
-.cover-container {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-/* Padding for spacing */
-.inner {
-  padding: 30px;
-}
-
-
-/*
- * Header
- */
-.masthead-brand {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.masthead-nav > li {
-  display: inline-block;
-}
-.masthead-nav > li + li {
-  margin-left: 20px;
-}
-.masthead-nav > li > a {
-  padding-right: 0;
-  padding-left: 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff; /* IE8 proofing */
-  color: rgba(255,255,255,.75);
-  border-bottom: 2px solid transparent;
-}
-.masthead-nav > li > a:hover,
-.masthead-nav > li > a:focus {
-  background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255,255,255,.25);
-}
-.masthead-nav > .active > a,
-.masthead-nav > .active > a:hover,
-.masthead-nav > .active > a:focus {
-  color: #fff;
-  border-bottom-color: #fff;
-}
-
-@media (min-width: 768px) {
-  .masthead-brand {
+  /* HEADER */
+  header{
+    margin: 0px !important;
+    padding: 10px 20px;
+    z-index: 1;
     float: left;
+    width: 100%;
+    background-color: rgba(0,0,0,0.1);
   }
-  .masthead-nav {
-    float: right;
-  }
-}
-
-
-/*
- * Cover
- */
-
-.cover {
-  padding: 0 20px;
-}
-.cover .btn-lg {
-  padding: 10px 20px;
-  font-weight: bold;
-}
-
-
-/*
- * Footer
- */
-
-.mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
-}
-
-
-/*
- * Affix and center
- */
-
-@media (min-width: 768px) {
-  /* Pull out the header and footer */
-  .masthead {
+  header.fixed{
     position: fixed;
-    top: 0;
   }
-  .mastfoot {
-    position: fixed;
-    bottom: 0;
+  header .logo{
+    line-height: 60px;
   }
-  /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
+  header .logo > img{
+    width: 100px;
+    margin-top: 10px;
   }
-  /* Handle the widths */
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+
+  header .search{
+    padding: 4px;
   }
+
+  header .search{
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+
+  header .search:focus{
+    width: 100%;
+  }
+  header .menu{
+    text-align: right;
+  }
+  header .menu > ul{
+    list-style-type: none;
+    padding: 0px;
+    margin-right: 20px;
+  }
+  header .menu > ul > li:first-child{
+    width: 250px;
+  }
+  header .menu > ul > li.registered > a > img{
+    width: 25px;
+    margin: 0px 2px;
+  }
+  header .menu > ul > li{
+    display: inline-block;
+    padding: 8px 15px;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+  header .menu > ul > li > a{
+    text-decoration: none;
+    color:white;
+  }
+
+  header .menu > ul > li:not(.no-hover):hover , header .menu > ul > li.active{
+    border-bottom-color: #CC0000;
+  }
+  header .menu > ul > li:not(.no-hover):hover > a , header .menu > ul > li.active > a{
+   /* color:#CC0000;*/
+  }
+  /* END HEADER */
+
+
+  /* BANNER */
+  #banner{
+    width: 100%;
+    max-height: 700px;
+    background-image: url(../images/slider1.jpg);
+    background-position: top;
+    background-size: cover;
+  }
+
+  #banner > .banner-container{
+    margin: 150px 50px 50px 50px;
+    width: 35%;
+  }
+
+  #banner .banner-tags{
+    padding: 10px 0px;
+  }
+  #banner .banner-tags > a{
+    text-decoration: none;
+    color:white;
+    border:1px solid white;
+    padding: 5px;
+    font-size: 9px;
+  }
+  #banner .banner-tags > a:hover{
+    color:#CC0000;
+    border:1px solid #CC0000;
+  }
+  #banner .banner-description > p{
+    color:white;
+  }
+  /* END BANNER */
+
+
+  /*TILES*/
+  .app-container .tiles-container{
+    margin: 50px;
+    color:white;
+  }
+  /*END TILES*/
 }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { ... }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { ... }
+
+/* Landscape phones and down */
+@media (max-width: 480px) { ... }

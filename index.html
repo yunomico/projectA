@@ -1,58 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>MangaFlix 101 Template</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>MangaFlix</title>
 
-    <!-- Bootstrap -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
     <script src="bower_components/respond/dest/respond.min.js"></script>
     <![endif]-->
   </head>
   <body>
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>
+    <div class="app-container">
+        <header class="row">
+          <div class="col-lg-2 text-center">
+            <a href="JavaScript:void(0);" class="logo"><img src="images/logo.png" alt="MangaFlix Logo"></a>
+          </div>
+          <div class="col-lg-10">
+            <div class="row">
+                <nav class="menu">
+                  <ul>
+                    <li class="no-hover"><input type="text" name="search" class="search" placeholder="Search.."></li>
+                    <li class="active"><a href="JavaScript:void(0);"><span>Top Releases</span></a></li>
+                    <li><a href="JavaScript:void(0);"><span>Hot Manga</span></a></li>
+                    <li><a href="JavaScript:void(0);"><span>Manga Directory</span></a></li>
+                    <!-- <li class="login"><a href="JavaScript:void(0);"><span>Login</span></a></li> -->
+                    <li class="no-hover registered"><a href="JavaScript:void(0);"><img src="images/profile.png"><span>Maki</span></a></li>
+                  </ul>
+                </nav>
             </div>
           </div>
+        </header>
 
-      
-
-          <div class="mastfoot">
-            <div class="inner">
-              
+        <div class="container-fluid" id="banner">
+            <div class="banner-container">
+                 <div class="banner-image">
+                   <img src="images/banner-logo2.png" class="image-responsive">
+                 </div>
+                 <div class="banner-tags">
+                    <a href="JavaScript:void(0);"><span>Action</span></a>
+                    <a href="JavaScript:void(0);"><span>Comedy</span></a>
+                    <a href="JavaScript:void(0);"><span>Drama</span></a>
+                    <a href="JavaScript:void(0);"><span>Fantasy</span></a>
+                 </div>
+                 <div class="banner-description">
+                   <p class="text-justify">Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has lead him to take advantage of the child emperor's inexperience. Without a strong and benevolent leader, the rest of the nation is left to drown in poverty, strife, and ruin. Though the Night Raid members are all experienced killers, they understand that taking lives is far from commendable and that they will likely face retribution as they mercilessly eliminate anyone who stands in the revolution's way.</p>
+                 </div>
+                 <div class="btn-container">
+                    <a href="JavaScript:void(0);" class="btn btn-danger"><span>Chapter 80</span></a>
+                    <a href="JavaScript:void(0);" class="btn btn-default"><span>Akame ga kill Chapters</span></a>
+                 </div>
             </div>
-          </div>
-
         </div>
 
-      </div>
-
+        <div class="tiles-container">
+             <div class="row">
+              <h2>Recently Manga Release</h2>
+              <!-- TILES HERE -->
+              <!-- END TILES HERE -->
+            </div>
+            <div class="row">
+              <h2>Hot Manga Release</h2>
+              <!-- TILES HERE -->
+              <!-- END TILES HERE -->
+            </div>
+            <div class="row">
+              <h2>New Manga Release</h2>
+              <!-- TILES HERE -->
+              <!-- END TILES HERE -->
+            </div>
+            
+           
+        </div>
+      
     </div>
-
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -7,6 +7,31 @@ html , body{
   font-family: 'Fira Sans Condensed', sans-serif;
 }
 
+.app-container .app-wrap {
+  margin: 0px 70px;
+}
+
+/* Carousel base class */
+.carousel {
+  height: 700px;
+  margin-bottom: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 700px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+}
 
 
 /* Large desktop */
@@ -17,12 +42,14 @@ html , body{
     margin: 0px !important;
     padding: 10px 20px;
     z-index: 1;
-    float: left;
-    width: 100%;
-    background-color: rgba(0,0,0,0.1);
-  }
-  header.fixed{
     position: fixed;
+    width: 100%;
+    background-color: rgba(40,40,39,0.1);
+    -webkit-transition: background-color 0.4s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
+  }
+  header.withbackground{
+    background-color: rgba(40,40,39,1);
   }
   header .logo{
     line-height: 60px;
@@ -81,17 +108,25 @@ html , body{
 
 
   /* BANNER */
-  #banner{
+  /*#banner{
     width: 100%;
     max-height: 700px;
     background-image: url(../images/slider1.jpg);
     background-position: top;
     background-size: cover;
-  }
+    padding: 50px 0px;
+  }*/
 
+  #banner{
+    position: absolute;
+  }
   #banner > .banner-container{
-    margin: 150px 50px 50px 50px;
+    margin-top: 150px;
+    margin-bottom: 50px;
     width: 35%;
+  }
+  #banner .banner-image > img{
+    width: 350px;
   }
 
   #banner .banner-tags{
@@ -116,7 +151,8 @@ html , body{
 
   /*TILES*/
   .app-container .tiles-container{
-    margin: 50px;
+    margin-top: 50px;
+    margin-bottom : 50px;
     color:white;
   }
   /*END TILES*/

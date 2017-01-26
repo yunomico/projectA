@@ -38,16 +38,63 @@ footer{
   padding: 10px 0px;
 }
 
-.manga-image .owl-lazy{
-  width: 400px;
-  height: 300px;
+/*.manga-image .owl-lazy{*/
+  /*width: 400px;*/
+  /*height: 300px;*/
+/*}*/
+/*.manga-image .owl-item.active > div{*/
+  /*padding-bottom: 20px;*/
+/*}*/
+/*.manga-image-drop .owl-lazy{*/
+  /*width: 400px;*/
+  /*height: 150px;*/
+/*}*/
+
+.owl-carousel {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-.manga-image .owl-item.active > div{
-  padding-bottom: 20px;
+
+.owl-theme .owl-nav .owl-prev, .owl-theme .owl-nav .owl-next {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px; /*Half of the prev/next buttons height here in negatives to center them perfectly*/
 }
-.manga-image-drop .owl-lazy{
-  width: 400px;
-  height: 150px;
+.owl-prev {
+    left: 0;
+}
+.owl-next {
+    right: 0;
+}
+
+.owl-next, .owl-prev {
+    color: #ff0000;
+}
+
+.tile {
+    width: 175px !important;
+    height: 300px !important;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.tile:hover{
+    z-index:3;
+    height: 260px;
+    transform: scale(1.2);
+    border: 3px solid #fff;
+}
+
+.title {
+    position: absolute;
+    z-index: 4;
+    color: rebeccapurple;
+    max-width: 100%;
+    margin-left: 1px;
+    margin-right: 1px;
+    bottom: 2px;
 }
 
 /* Large desktop */
@@ -180,10 +227,10 @@ footer{
   /*END TILES*/
 
 
-   .tiles-container  .drop-active > img{
-      border: 5px solid white;
-      position: absolute;
-    }
+   /*.tiles-container  .drop-active > img{*/
+      /*border: 5px solid white;*/
+      /*position: absolute;*/
+    /*}*/
    .tiles-container  .arrow {
       content: "";
       width: 0;

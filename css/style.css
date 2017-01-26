@@ -13,7 +13,7 @@ html , body{
 
 /* Carousel base class */
 .carousel {
-  height: 700px;
+  height: 550px;
   margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
@@ -23,7 +23,7 @@ html , body{
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 700px;
+  height: 550px;
   background-color: #777;
 }
 .carousel-inner > .item > img {
@@ -33,6 +33,22 @@ html , body{
   min-width: 100%;
 }
 
+footer{
+  background-color: #1a1a19;
+  padding: 10px 0px;
+}
+
+.manga-image .owl-lazy{
+  width: 400px;
+  height: 300px;
+}
+.manga-image .owl-item.active > div{
+  padding-bottom: 20px;
+}
+.manga-image-drop .owl-lazy{
+  width: 400px;
+  height: 150px;
+}
 
 /* Large desktop */
 @media (min-width: 1200px) { 
@@ -41,24 +57,23 @@ html , body{
   header{
     margin: 0px !important;
     padding: 10px 20px;
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     width: 100%;
-    background-color: rgba(40,40,39,0.1);
+    background-color: transparent;
     -webkit-transition: background-color 0.4s ease-in-out;
     transition: background-color 0.4s ease-in-out;
   }
   header.withbackground{
-    background-color: rgba(40,40,39,1);
+    background-color: rgba(26,26,25,1);
   }
   header .logo{
-    line-height: 60px;
+    text-decoration: none;
+    color: #CC0000;
   }
-  header .logo > img{
-    width: 100px;
-    margin-top: 10px;
+  header .logo > h2{
+    font-weight: bold;;
   }
-
   header .search{
     padding: 4px;
   }
@@ -119,6 +134,13 @@ html , body{
 
   #banner{
     position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, black , rgba(0,0,0,0.1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, black, rgba(0,0,0,0.1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, black, rgba(0,0,0,0.1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, black , rgba(0,0,0,0.1)); /* Standard syntax */
   }
   #banner > .banner-container{
     margin-top: 150px;
@@ -156,6 +178,76 @@ html , body{
     color:white;
   }
   /*END TILES*/
+
+
+   .tiles-container  .drop-active > img{
+      border: 5px solid white;
+      position: absolute;
+    }
+   .tiles-container  .arrow {
+      content: "";
+      width: 0;
+      height: 0;
+      margin-top: 300px;
+      margin-left: 100px;
+      border-style: solid;
+      border-width: 10px 10px 0 10px;
+      border-color: #ffffff transparent transparent transparent;
+      position: absolute;
+    }
+    .drop-container .tile-close{
+        color: white;
+        margin: 10px;
+        font-size: 20px;
+        line-height: 80px;
+    }
+    .drop-container{
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      margin: -10px 0px 0px 0px;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    .drop-container img.drop-background{
+      width: 100%;
+      max-height: 500px;
+    }
+    .drop-container .drop-list{
+      background: black; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(left, black , rgba(0,0,0,0.4)); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(right, black, rgba(0,0,0,0.4)); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(right, black, rgba(0,0,0,0.4)); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(to right, black , rgba(0,0,0,0.4)); /* Standard syntax */
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    footer nav > ul{
+      list-style-type: none;
+      padding: 0px;
+      margin: 0px;
+    }
+    footer nav {
+      margin-top:20px;
+    }
+    footer nav > ul > li{
+      line-height: 20px;
+      display: inline-block;
+      margin-left: 10px;
+     }
+
+    footer nav > ul > li > a {
+       text-decoration: none;
+        color: white;
+     }
+     footer nav > ul > li > a:hover{
+      text-decoration: none;
+      color:#CC0000;
+     }
+
 }
 
 /* Portrait tablet to landscape and desktop */

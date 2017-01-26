@@ -8,3 +8,17 @@ $(window).scroll(function (event) {
     	$('header').removeClass('withbackground');
     }
 });
+
+$(document).ready(function(){
+	$(".owl-carousel").owlCarousel({
+		loop:true,
+    	margin:10,
+    	lazyLoad:true,
+    	items:6,
+	});
+});
+
+$(document).on('click' , '.tile-close' , function(){
+    $(this).closest('.drop-container').fadeOut();
+    $('.owl-lazy').parent().removeClass('drop-active').find('.arrow').remove();
+});

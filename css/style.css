@@ -38,18 +38,6 @@ footer{
   padding: 10px 0px;
 }
 
-/*.manga-image .owl-lazy{*/
-  /*width: 400px;*/
-  /*height: 300px;*/
-/*}*/
-/*.manga-image .owl-item.active > div{*/
-  /*padding-bottom: 20px;*/
-/*}*/
-/*.manga-image-drop .owl-lazy{*/
-  /*width: 400px;*/
-  /*height: 150px;*/
-/*}*/
-
 .owl-carousel {
     position: relative;
     margin-top: 10px;
@@ -59,31 +47,37 @@ footer{
 .owl-theme .owl-nav .owl-prev, .owl-theme .owl-nav .owl-next {
     position: absolute;
     top: 50%;
-    margin-top: -10px; /*Half of the prev/next buttons height here in negatives to center them perfectly*/
+    margin-top: -40px; /*Half of the prev/next buttons height here in negatives to center them perfectly*/
 }
 .owl-prev {
-    left: 0;
+    left: -50px;
 }
 .owl-next {
-    right: 0;
+    right: -50px;
 }
 
 .owl-next, .owl-prev {
-    color: #ff0000;
+    color: #CC0000;
+    font-size: 60px;
 }
-
+.owl-next.disabled, .owl-prev.disabled{
+  color: transparent;
+}
 .tile {
     width: 175px !important;
     height: 300px !important;
     z-index: 1;
     position: relative;
     cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    border:3px solid transparent;
 }
 
-.tile:hover{
+.owl-item:hover > .tile{
     z-index:3;
     height: 260px;
-    transform: scale(1.2);
+    transform: scale(1.1);
     border: 3px solid #fff;
 }
 
@@ -97,6 +91,13 @@ footer{
     bottom: 2px;
 }
 
+
+.owl-carousel .owl-stage-outer{
+  padding: 40px 20px;
+}
+.overview-btn-group{
+  margin: 10px 0px;
+}
 /* Large desktop */
 @media (min-width: 1200px) { 
 
@@ -227,10 +228,6 @@ footer{
   /*END TILES*/
 
 
-   /*.tiles-container  .drop-active > img{*/
-      /*border: 5px solid white;*/
-      /*position: absolute;*/
-    /*}*/
    .tiles-container  .arrow {
       content: "";
       width: 0;
@@ -252,7 +249,7 @@ footer{
       z-index: 1;
       width: 100%;
       height: 100%;
-      margin: -10px 0px 0px 0px;
+      margin: -30px 0px 0px 0px;
       display: block;
       position: relative;
       overflow: hidden;

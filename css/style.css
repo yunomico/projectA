@@ -38,18 +38,66 @@ footer{
   padding: 10px 0px;
 }
 
-.manga-image .owl-lazy{
-  width: 400px;
-  height: 300px;
-}
-.manga-image .owl-item.active > div{
-  padding-bottom: 20px;
-}
-.manga-image-drop .owl-lazy{
-  width: 400px;
-  height: 150px;
+.owl-carousel {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
+.owl-theme .owl-nav .owl-prev, .owl-theme .owl-nav .owl-next {
+    position: absolute;
+    top: 50%;
+    margin-top: -40px; /*Half of the prev/next buttons height here in negatives to center them perfectly*/
+}
+.owl-prev {
+    left: -50px;
+}
+.owl-next {
+    right: -50px;
+}
+
+.owl-next, .owl-prev {
+    color: #CC0000;
+    font-size: 60px;
+}
+.owl-next.disabled, .owl-prev.disabled{
+  color: transparent;
+}
+.tile {
+    width: 200px !important;
+    height: 300px !important;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    border:3px solid transparent;
+}
+
+.owl-item:hover > .tile , .overview-active > .tile{
+    z-index:3;
+    height: 260px;
+    transform: scale(1.1);
+    border: 3px solid #FFF;
+}
+
+.title {
+    position: absolute;
+    z-index: 4;
+    color: rebeccapurple;
+    max-width: 100%;
+    margin-left: 1px;
+    margin-right: 1px;
+    bottom: 2px;
+}
+
+
+.owl-carousel .owl-stage-outer{
+  padding: 40px 20px;
+}
+.overview-btn-group{
+  margin: 10px 0px;
+}
 /* Large desktop */
 @media (min-width: 1200px) { 
 
@@ -180,19 +228,14 @@ footer{
   /*END TILES*/
 
 
-   .tiles-container  .drop-active > img{
-      border: 5px solid white;
-      position: absolute;
-    }
    .tiles-container  .arrow {
       content: "";
       width: 0;
       height: 0;
-      margin-top: 300px;
-      margin-left: 100px;
+      margin-top: 15px;
       border-style: solid;
       border-width: 10px 10px 0 10px;
-      border-color: #ffffff transparent transparent transparent;
+      border-color: #FFF transparent transparent transparent;
       position: absolute;
     }
     .drop-container .tile-close{
@@ -205,7 +248,7 @@ footer{
       z-index: 1;
       width: 100%;
       height: 100%;
-      margin: -10px 0px 0px 0px;
+      margin: -20px 0px 0px 0px;
       display: block;
       position: relative;
       overflow: hidden;

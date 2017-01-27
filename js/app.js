@@ -45,6 +45,7 @@ $(document).ready(function(){
     //populate fake data
     var array = [];
     for (var i = 0; i < 15; i++) {
+        array.push({'title': 'super duper awesome long title here ' + i, 'src': 'https://placehold.it/650x250&text=' + i, 'id': 'some id'});
     }
     var newData = {"id": "new" , "manga": array};
     var trendingData = {"id": "trending" , "manga": array};

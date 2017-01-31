@@ -86,7 +86,7 @@ $(document).on('mouseover' , ".tile" , function(){
 
     if(!$(this).parent().hasClass('overview-active')){
         $('.owl-item').removeClass('overview-active');
-        $(this).addClass('overview-active');
+        $(this).parent().addClass('overview-active');
 
         $(".owl-item").find('.remove-this').remove();
     }

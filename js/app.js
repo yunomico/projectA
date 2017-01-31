@@ -14,14 +14,30 @@ $(document).ready(function(){
         .done(function() {
             var owl = $('#' + data.id + '-carousel');
             owl.owlCarousel({
-            margin:-6,
+            margin:-5,
             loop: false,   //breaks title on hover sometimes
-            autoWidth: true,
+        
             nav: true,
             navText: ['<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>','<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>'], // need to replace with actual nav buttons
             // slideBy: 'page', //doesn't work?
             dots: false ,
-            lazyLoad:true
+            lazyLoad:true ,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:3,
+                    nav:false
+                },
+                1000:{
+                    items:8,
+                    nav:true,
+                    loop:false
+                }
+            }
         });
 
                 // autoplay on hover over buttons doesn't work well
@@ -65,10 +81,10 @@ $(document).ready(function(){
 
 });
 
-$(document).on('mouseover' , ".owl-item" , function(){
-    var title = $(this).find('img').attr('alt');
+$(document).on('mouseover' , ".tile" , function(){
+    var title = $(this).attr('alt');
 
-    if(!$(this).hasClass('overview-active')){
+    if(!$(this).parent().hasClass('overview-active')){
         $('.owl-item').removeClass('overview-active');
         $(this).addClass('overview-active');
 
@@ -76,11 +92,11 @@ $(document).on('mouseover' , ".owl-item" , function(){
     }
 
 
-    if(!$(this).find('.arrow').length){
+    if(!$(this).parent().find('.arrow').length){
         var small = $('<small>').text(title);
         var arrow = $('<span>', {'class': 'arrow remove-this'});
 
-        var img = $(this).find('img');
+        var img = $(this).parent().find('img');
         img.after(arrow);
 
         var mlen = img.width() / 2;
@@ -207,7 +223,7 @@ function build_overview_window(){
                     html += '<div class="col-lg-6 col-xs-12">';
                         html += '<dl class="dl-horizontal">';
                             html += '<dt></dt>';
-                            html += '<dd><a href="javascript:void(0);"><h3 id="title"></h3></a></dd>';
+                            html += '<dd><a href="javascript:void(0);" style="text-decoration:none;"><h3 id="title"></h3></a></dd>';
                             html += '<dt>Other Names</dt>';
                             html += '<dd id="other_name"></dd>';
                             html += '<dt>Genre</dt>';
@@ -219,11 +235,11 @@ function build_overview_window(){
                         html += '</dl>';
                     html += '</div>';
                     html += '<div class="col-lg-4 col-xs-12">';
-                        html += '<div class="container-fluid">';
+                        html += '<div>';
                             html += '<h3>Chapter List</h3>';
                             html += '<a href="JavaScript:void(0);" class="tile-close pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>';
                         html += '</div>';
-                        html += '<div class="container-fluid">';
+                        html += '<div>';
                             html += '<nav class="chapter_list">';
                                 html += '<ul>';
 

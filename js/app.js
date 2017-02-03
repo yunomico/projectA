@@ -36,6 +36,11 @@ $(document).ready(function(){
                     items:8,
                     nav:true,
                     loop:false
+                },
+                1200:{
+                    items:9,
+                    nav:true,
+                    loop:false
                 }
             }
         });
@@ -61,7 +66,7 @@ $(document).ready(function(){
     //populate fake data
     var array = [];
     for (var i = 0; i < 15; i++) {
-        array.push({'title': 'super duper awesome long title here ' + i, 'src': 'https://placehold.it/250x250&text=' + i, 'id': 'some id'});
+        array.push({'title': 'Death Marching to the Parallel World Rhapsody ' + i, 'src': 'https://placehold.it/250x250&text=' + i, 'id': 'some id'});
     }
     var newData = {"id": "new" , "manga": array};
     var trendingData = {"id": "trending" , "manga": array};
@@ -95,9 +100,12 @@ $(document).on('mouseover' , ".tile" , function(){
     if(!$(this).parent().find('.arrow').length){
         var small = $('<small>').text(title);
         var arrow = $('<span>', {'class': 'arrow remove-this'});
+        var span = $('<span>').text(title);
+        var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
+        
 
         var img = $(this).parent().find('img');
-        img.after(arrow);
+        img.after(arrow).after(a);
 
         var mlen = img.width() / 2;
  

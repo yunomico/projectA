@@ -1,11 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed');
+/*
+Project Name: Mangaflix
+Author: Makimaki
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 html , body{
   background-color: #282827;
   overflow: auto;
 }
 *{
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin:0;padding:0;
 }
 
@@ -57,6 +62,35 @@ footer{
   color:#828282;
   padding-right: 2px;
 }
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+/*        -webkit-border-radius: 10px;
+border-radius: 10px;*/
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+/*        -webkit-border-radius: 10px;
+border-radius: 10px;*/
+background:#ddd; 
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #ddd; 
+}
+
 /* Large desktop */
 @media (min-width: 1200px) { 
   .carousel {
@@ -218,13 +252,38 @@ footer{
     z-index: 1;
     position: relative;
     cursor: pointer;
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
+    -webkit-transition: transform 0.1s ease-in-out;
+    transition: transform 0.1s ease-in-out;
     border:3px solid transparent;
+  }
+  .title{
+    z-index: 3;
+    text-decoration: none !important;
+    position: absolute;
+    color: #FFF;
+    top: 13px;
+    height: 98%;
+    background-color: rgba(0,0,0,0.6);
+    width: 193px;
+    margin: 3px 2px;
+    padding: 12px 8px;
+    font-size: 15px;
+    line-height: 300px;
+    font-weight: bold;
+  }
+  .title > span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+  .owl-item:hover > .title , .overview-active > .title{
+    transform: scale(1.1);
+    margin: -10px 3px;
+    color:#FFF;
   }
 
   .owl-carousel .owl-stage-outer{
-    padding: 40px 20px;
+    padding: 15px 10px 20px 10px;
   }
   .owl-prev {
       left: -50px;
@@ -244,6 +303,7 @@ footer{
     border-width: 5px 10px 0 10px;
     border-color: #FFF transparent transparent transparent;
     position: absolute;
+    z-index: 5;
   }
   .drop-container .tile-close{
     color: white;
@@ -257,7 +317,7 @@ footer{
   .drop-container{
     z-index: 1;
     width: 100%;
-    max-height: 400px;
+    max-height: 430px;
     margin: -53px 0px 0px 0px;
     display: block;
     overflow: hidden;
@@ -266,7 +326,7 @@ footer{
   .drop-container .drop-list{
     width: 100%;
     height: 100%;
-    padding: 30px 55px;
+    padding: 45px 55px 30px 55px;
   }
   .drop-container #image{
     width: 250px;
@@ -331,7 +391,9 @@ footer{
   html , body{
       height: 100%;
   }
-
+  .title {
+    display: none;
+  }
   .carousel {
     height: 260px;
   }
@@ -355,7 +417,7 @@ footer{
     color:white;
   }
   .tile {
-      width: 250px !important;
+      width: 80% !important;
       height: 400px !important;
       z-index: 1;
       position: relative;

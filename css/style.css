@@ -2,36 +2,24 @@
 
 html , body{
   background-color: #282827;
+  overflow: auto;
 }
 *{
   font-family: 'Fira Sans Condensed', sans-serif;
+  margin:0;padding:0;
 }
 
-.app-container .app-wrap {
-  margin: 0px 70px;
-}
 
 /* Carousel base class */
-.carousel {
-  height: 550px;
-  margin-bottom: 60px;
-}
+
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
 }
 
 /* Declare heights because of positioning of img element */
-.carousel .item {
-  height: 550px;
-  background-color: #777;
-}
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-}
+
+
 
 footer{
   background-color: #1a1a19;
@@ -49,12 +37,7 @@ footer{
     top: 50%;
     margin-top: -40px; /*Half of the prev/next buttons height here in negatives to center them perfectly*/
 }
-.owl-prev {
-    left: -50px;
-}
-.owl-next {
-    right: -50px;
-}
+
 
 .owl-next, .owl-prev {
     color: #CC0000;
@@ -63,45 +46,43 @@ footer{
 .owl-next.disabled, .owl-prev.disabled{
   color: transparent;
 }
-.tile {
-    width: 200px !important;
-    height: 300px !important;
-    z-index: 1;
-    position: relative;
-    cursor: pointer;
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-    border:3px solid transparent;
-}
-
-.owl-item:hover > .tile , .overview-active > .tile{
-    z-index:3;
-    height: 260px;
-    transform: scale(1.1);
-    border: 3px solid #FFF;
-}
-
-.title {
-    position: absolute;
-    z-index: 4;
-    color: rebeccapurple;
-    max-width: 100%;
-    margin-left: 1px;
-    margin-right: 1px;
-    bottom: 2px;
-}
 
 
-.owl-carousel .owl-stage-outer{
-  padding: 40px 20px;
-}
 .overview-btn-group{
   margin: 10px 0px;
 }
+
+.drop-container dt{
+  font-style: italic;
+  color:#828282;
+  padding-right: 2px;
+}
 /* Large desktop */
 @media (min-width: 1200px) { 
+  .carousel {
+    height: 550px;
+    margin-bottom: 60px;
+  }
+  .carousel .item {
+    height: 550px;
+    background-color: #777;
+  }
+  .carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+  }
 
+
+
+  .app-container .app-wrap {
+    margin: 0px 70px;
+  }
   /* HEADER */
+  header .menu-btn{
+    display: none;
+  }
   header{
     margin: 0px !important;
     padding: 10px 20px;
@@ -225,71 +206,117 @@ footer{
     margin-bottom : 50px;
     color:white;
   }
+  .owl-item:hover > .tile , .overview-active > .tile{
+      z-index:3;
+      height: 260px;
+      transform: scale(1.1);
+      border: 3px solid #FFF;
+  }
+  .tile {
+    width: 200px !important;
+    height: 300px !important;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    border:3px solid transparent;
+  }
+
+  .owl-carousel .owl-stage-outer{
+    padding: 40px 20px;
+  }
+  .owl-prev {
+      left: -50px;
+  }
+  .owl-next {
+      right: -50px;
+  }
   /*END TILES*/
 
 
-   .tiles-container  .arrow {
-      content: "";
-      width: 0;
-      height: 0;
-      margin-top: 15px;
-      border-style: solid;
-      border-width: 10px 10px 0 10px;
-      border-color: #FFF transparent transparent transparent;
-      position: absolute;
-    }
-    .drop-container .tile-close{
-        color: white;
-        margin: 10px;
-        font-size: 20px;
-        line-height: 80px;
-    }
-    .drop-container{
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      margin: -20px 0px 0px 0px;
-      display: block;
-      position: relative;
-      overflow: hidden;
-    }
-    .drop-container img.drop-background{
-      width: 100%;
-      max-height: 500px;
-    }
-    .drop-container .drop-list{
-      background: black; /* For browsers that do not support gradients */
-      background: -webkit-linear-gradient(left, black , rgba(0,0,0,0.4)); /* For Safari 5.1 to 6.0 */
-      background: -o-linear-gradient(right, black, rgba(0,0,0,0.4)); /* For Opera 11.1 to 12.0 */
-      background: -moz-linear-gradient(right, black, rgba(0,0,0,0.4)); /* For Firefox 3.6 to 15 */
-      background: linear-gradient(to right, black , rgba(0,0,0,0.4)); /* Standard syntax */
-      width: 100%;
-      height: 100%;
-      position: absolute;
-    }
+  .tiles-container  .arrow {
+    content: "";
+    width: 0;
+    height: 0;
+    margin-top: 15px;
+    border-style: solid;
+    border-width: 5px 10px 0 10px;
+    border-color: #FFF transparent transparent transparent;
+    position: absolute;
+  }
+  .drop-container .tile-close{
+    color: white;
+    margin: 30px;
+    font-size: 20px;
+    margin: 0px 15px;
+    position: absolute;
+    right: 0px;
+    top: 0;
+  }
+  .drop-container{
+    z-index: 1;
+    width: 100%;
+    max-height: 400px;
+    margin: -53px 0px 0px 0px;
+    display: block;
+    overflow: hidden;
+    background-color: #1a1a19;
+  }
+  .drop-container .drop-list{
+    width: 100%;
+    height: 100%;
+    padding: 30px 55px;
+  }
+  .drop-container #image{
+    width: 250px;
+    height: 350px;
+  }
+  .drop-container #title , .drop-container h3{
+    color : #cc0000;
+  }
+  .drop-container .chapter_list{
+    height: 300px;
+    overflow: auto;
+  }
+  .drop-container .chapter_list > ul{
+    list-style-type: none;
+    padding: 0px;
+  }
+  .drop-container .chapter_list > ul > li{
+    display: block;
+    padding: 2px;
+  }
+  .drop-container .chapter_list > ul > li > a{
+    text-decoration: none;
+    color:white;
+  }
+  .drop-container .chapter_list > ul > li > a:hover{
+    font-style: italic;
+    color:#cc0000;
+  }
+  footer nav > ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+  }
+  footer nav {
+    margin-top:20px;
+  }
+  footer nav > ul > li{
+    line-height: 20px;
+    display: inline-block;
+    margin-left: 10px;
+   }
 
-    footer nav > ul{
-      list-style-type: none;
-      padding: 0px;
-      margin: 0px;
-    }
-    footer nav {
-      margin-top:20px;
-    }
-    footer nav > ul > li{
-      line-height: 20px;
-      display: inline-block;
-      margin-left: 10px;
-     }
-
-    footer nav > ul > li > a {
-       text-decoration: none;
-        color: white;
-     }
-     footer nav > ul > li > a:hover{
-      text-decoration: none;
-      color:#CC0000;
-     }
+  footer nav > ul > li > a {
+     text-decoration: none;
+      color: white;
+   }
+   footer nav > ul > li > a:hover{
+    text-decoration: none;
+    color:#CC0000;
+   }
 
 }
 
@@ -300,4 +327,238 @@ footer{
 @media (max-width: 767px) { ... }
 
 /* Landscape phones and down */
-@media (max-width: 480px) { ... }
+@media (max-width: 480px) { 
+  html , body{
+      height: 100%;
+  }
+
+  .carousel {
+    height: 260px;
+  }
+  .carousel .item {
+    height: 260px;
+    background-color: #777;
+  }
+  .carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 100%;
+  }
+
+  .app-container .app-wrap {
+      margin: 0px 0px;
+      overflow: hidden;
+  }
+  .app-container .tiles-container{
+    color:white;
+  }
+  .tile {
+      width: 250px !important;
+      height: 400px !important;
+      z-index: 1;
+      position: relative;
+      cursor: pointer;
+      -webkit-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+      border:3px solid transparent;
+      margin: 0px auto;
+  }
+  .owl-prev {
+      left: -10px;
+  }
+  .owl-next {
+      right: -10px;
+  }
+  header{
+    margin: 0px !important;
+    padding: 0px 0px;
+    z-index: 2;
+    width: 100%;
+    background-color: transparent;
+    -webkit-transition: background-color 0.4s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
+  }
+
+  header > div > div:first-child{
+    display: block;
+    margin: 0px 10px;
+  }
+  header > div > div:first-child > a:first-child{
+    float: left;
+    text-decoration: none;
+    color: #CC0000;
+  }
+
+  header > div > div:first-child > a:first-child > h2{
+    font-weight: bold;
+  }
+  header > div > div:first-child > a:last-child{
+    float: right;
+    margin:22px 15px;
+    font-size: 20px;
+    color: #CC0000;
+  }
+  header > div > div:last-child{
+    background-color: #1a1a19;
+    margin: 0px;
+    display: none;
+  }
+  header > div > div:last-child > div{
+    margin: 0px;
+    padding: 10px;
+  }
+  header > div > div:last-child .menu > ul{
+    list-style-type: none;
+    display: block;
+    padding: 0px;
+    text-align: center;
+  }
+  header > div > div:last-child .menu > ul > li{
+    margin: 2px 0px;
+  }
+  header > div > div:last-child .menu > ul > li .search{
+    width: 100%;
+  }
+  header > div > div:last-child .menu > ul > li a{
+    text-decoration: none;
+    color:white;
+  }
+
+  header > div > div:last-child .menu > ul > li a:hover{
+    color:#CC0000;
+  }
+  header > div > div:last-child.active{
+    display: block;
+  }
+
+
+  #banner{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, black , rgba(0,0,0,0.1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, black, rgba(0,0,0,0.1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, black, rgba(0,0,0,0.1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, black , rgba(0,0,0,0.1)); /* Standard syntax */
+    font-size: 9px;
+  }
+  #banner > .banner-container{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+  }
+  #banner > .banner-container > .banner-image{
+    width: 50% !important;
+    float: left;
+  }
+  #banner > .banner-container > .banner-image > img{
+    width: 100%;
+  }
+  #banner > .banner-container > .banner-tags{
+    width: 100%;
+    float: right;
+    margin: 10px 0px;
+  }
+  #banner .banner-tags > a{
+    text-decoration: none;
+    color:white;
+    border:1px solid white;
+    padding: 5px;
+    font-size: 9px;
+  }
+  #banner .banner-tags > a:hover{
+    color:#CC0000;
+    border:1px solid #CC0000;
+  }
+  #banner > .banner-container > .banner-description{
+    width: 100%;
+    float: left;
+    color:white;
+  }
+  #banner > .banner-container > .btn-container{
+    width: 100%;
+    float: right;
+    margin: 0px 0px;
+    text-align: right;
+  }
+  #banner > .banner-container > .btn-container > a{
+    font-size: 9px;
+  }
+
+  footer nav > ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+  }
+  footer nav {
+    margin-top:0px;
+    text-align: center;
+  }
+  footer nav > ul > li{
+    line-height: 20px;
+    display: block;
+    margin-left: 10px;
+   }
+
+  footer nav > ul > li > a {
+     text-decoration: none;
+      color: white;
+   }
+   footer nav > ul > li > a:hover{
+    text-decoration: none;
+    color:#CC0000;
+   }
+
+  .drop-container{
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background-color: #1a1a19;
+    position: fixed;
+  }
+  .drop-container .drop-list{
+    height: 100%;
+    overflow: auto;
+    padding: 10px 0px;
+  }
+  .drop-container #image{
+    width: 100%;
+  }
+  .drop-container #title , .drop-container h3{
+    color : #cc0000;
+    
+  }
+  .drop-container .chapter_list > ul{
+    list-style-type: none;
+    padding: 0px;
+  }
+  .drop-container .chapter_list > ul > li{
+    display: block;
+    padding: 2px;
+  }
+  .drop-container .chapter_list > ul > li > a{
+    text-decoration: none;
+    color:white;
+  }
+  .drop-container .chapter_list > ul > li > a:hover{
+    font-style: italic;
+    color:#cc0000;
+  }
+
+  .drop-container .tile-close{
+      position: fixed;
+      top: 15px;
+      right: 35px;
+      font-size: 40px;
+      color: white;
+  }
+  .tiles-container > div > h1{
+    text-align: center;
+  }
+}

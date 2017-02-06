@@ -6,8 +6,46 @@ $(document).ready(function(){
         
         slide.append(carousel);
 
+        //show image tiles and set tiles hover (show title) and onclick (show dropdown)
         $(data.manga).each(function(index, manga) {
             var img = $('<img>', {'class': 'tile', 'src': manga.src, 'alt': manga.title , 'data-id' : index});
+            var span = $('<span>').text(manga.title);
+            var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
+            
+            // TODO fix hover title flickering with on click
+            // img.mouseenter(function() {
+            //     img.after(a);
+            // });
+            // img.mouseleave(function() {
+            //     a.remove();
+            // });
+
+            img.on('click', function() {
+                if(!$(this).parent().hasClass('overview-active')){
+                    $('.owl-item').removeClass('overview-active');
+                    $(this).parent().addClass('overview-active');
+
+                    $(".owl-item").find('.remove-this').remove();
+                }
+
+                if(!$(this).parent().find('.arrow').length){
+                    // var small = $('<small>').text(title);
+                    var arrow = $('<span>', {'class': 'arrow remove-this'});
+                    
+                    // var img = $(this).parent().find('img');
+                    // img.after(arrow).after(a);
+                    // img.after(a);
+                    img.after(arrow);
+
+                    var mlen = img.width() / 2;
+            
+                    arrow.css("margin-left" , (mlen - 10)+"px");
+
+                    //appends dropdown?
+                    append_overview( $(this) , img.data('id') );
+                }
+            });
+
             carousel.append(img);
         })
         .promise()
@@ -20,8 +58,9 @@ $(document).ready(function(){
             nav: true,
             navText: ['<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>','<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>'], // need to replace with actual nav buttons
             // slideBy: 'page', //doesn't work?
-            dots: false ,
-            lazyLoad:true ,
+            dots: false,
+            lazyLoad:true,
+            mouseDrag: false,
             responsiveClass:true,
             responsive:{
                 0:{
@@ -86,35 +125,35 @@ $(document).ready(function(){
 
 });
 
-$(document).on('mouseover' , ".tile" , function(){
-    var title = $(this).attr('alt');
+// $(document).on('mouseover' , ".tile" , function(){
+//     var title = $(this).attr('alt');
 
-    if(!$(this).parent().hasClass('overview-active')){
-        $('.owl-item').removeClass('overview-active');
-        $(this).parent().addClass('overview-active');
+//     if(!$(this).parent().hasClass('overview-active')){
+//         $('.owl-item').removeClass('overview-active');
+//         $(this).parent().addClass('overview-active');
 
-        $(".owl-item").find('.remove-this').remove();
-    }
+//         $(".owl-item").find('.remove-this').remove();
+//     }
 
 
-    if(!$(this).parent().find('.arrow').length){
-        var small = $('<small>').text(title);
-        var arrow = $('<span>', {'class': 'arrow remove-this'});
-        var span = $('<span>').text(title);
-        var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
+//     if(!$(this).parent().find('.arrow').length){
+//         var small = $('<small>').text(title);
+//         var arrow = $('<span>', {'class': 'arrow remove-this'});
+//         var span = $('<span>').text(title);
+//         var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
         
 
-        var img = $(this).parent().find('img');
-        img.after(arrow).after(a);
+//         var img = $(this).parent().find('img');
+//         img.after(arrow).after(a);
 
-        var mlen = img.width() / 2;
+//         var mlen = img.width() / 2;
  
-        arrow.css("margin-left" , (mlen - 10)+"px");
+//         arrow.css("margin-left" , (mlen - 10)+"px");
 
-        append_overview( $(this) , img.data('id') );
-    }
+//         append_overview( $(this) , img.data('id') );
+//     }
     
-});
+// });
 
 function append_overview(a , id){
     var html = build_overview_window();

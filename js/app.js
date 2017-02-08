@@ -16,11 +16,15 @@ $(document).ready(function(){
             // img.mouseenter(function() {
             //     img.after(a);
             // });
-            // img.mouseleave(function() {
+            // a.mouseleave(function() {
             //     a.remove();
             // });
 
             img.on('click', function() {
+                //Moves slide that was clicked
+                //Only works sometimes
+                carousel.trigger('to.owl.carousel', [index]);
+
                 if(!$(this).parent().hasClass('overview-active')){
                     $('.owl-item').removeClass('overview-active');
                     $(this).parent().addClass('overview-active');
@@ -53,8 +57,7 @@ $(document).ready(function(){
             var owl = $('#' + data.id + '-carousel');
             owl.owlCarousel({
             margin:-5,
-            loop: false,   //breaks title on hover sometimes
-        
+            //loop: true,   //breaks title on hover sometimes
             nav: true,
             navText: ['<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>','<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>'], // need to replace with actual nav buttons
             // slideBy: 'page', //doesn't work?

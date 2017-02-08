@@ -113,6 +113,11 @@ background:#ddd;
   .app-container .app-wrap {
     margin: 0px 70px;
   }
+
+  .tiles-container .app-wrap {
+    width: 70%;
+  }
+
   /* HEADER */
   header .menu-btn{
     display: none;
@@ -240,6 +245,7 @@ background:#ddd;
     margin-bottom : 50px;
     color:white;
   }
+
   .owl-item:hover > .tile , .overview-active > .tile{
       z-index:3;
       height: 260px;
@@ -247,8 +253,8 @@ background:#ddd;
       border: 3px solid #FFF;
   }
   .tile {
-    width: 200px !important;
-    height: 300px !important;
+    width: 175px !important;
+    height: 250px !important;
     z-index: 1;
     position: relative;
     cursor: pointer;

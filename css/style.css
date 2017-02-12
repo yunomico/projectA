@@ -115,7 +115,7 @@ background:#ddd;
   }
 
   .tiles-container .app-wrap {
-    width: 70%;
+    /*width: 70%;*/
   }
 
   /* HEADER */
@@ -246,7 +246,7 @@ background:#ddd;
     color:white;
   }
 
-  .owl-item:hover > .tile , .overview-active > .tile{
+  .owl-item:hover > .tile , .overview-active > .tile , .oActive > .tile{
       z-index:3;
       height: 260px;
       transform: scale(1.1);
@@ -270,11 +270,11 @@ background:#ddd;
     top: 13px;
     height: 98%;
     background-color: rgba(0,0,0,0.6);
-    width: 193px;
+    width: 168px;
     margin: 3px 2px;
     padding: 12px 8px;
     font-size: 15px;
-    line-height: 300px;
+    line-height: 200px;
     font-weight: bold;
   }
   .title > span {
@@ -282,7 +282,7 @@ background:#ddd;
   vertical-align: middle;
   line-height: normal;
 }
-  .owl-item:hover > .title , .overview-active > .title{
+  .owl-item:hover > .title , .overview-active > .title , .oActive > .title{
     transform: scale(1.1);
     margin: -10px 3px;
     color:#FFF;

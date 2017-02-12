@@ -9,65 +9,72 @@ $(document).ready(function(){
         //show image tiles and set tiles hover (show title) and onclick (show dropdown)
         $(data.manga).each(function(index, manga) {
             var img = $('<img>', {'class': 'tile', 'src': manga.src, 'alt': manga.title , 'data-id' : index});
-            var span = $('<span>').text(manga.title);
-            var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
+            // var span = $('<span>').text(manga.title);
+            // var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
             
-            // TODO fix hover title flickering with on click
+            // // TODO fix hover title flickering with on click
             // img.mouseenter(function() {
-            //     img.after(a);
+
+            //     // if( !img.parent().find('.remove-this').length ){
+            //     //     carousel.closest('.tiles-container').find('.remove-this').remove();
+            //     //     img.after(a);
+            //     // }
             // });
-            // a.mouseleave(function() {
-            //     a.remove();
+            // img.mouseleave(function() {
+            //   // img.parent().find('.remove-this').remove();
             // });
 
-            img
-                .mousedown (function() {
-                    img.removeClass('drag');
-                })
-                .mousemove (function() {
-                    img.addClass('drag');
-                })
-                .mouseup (function() {
-                    //simulates on click
-                    if (!img.hasClass('drag')) {
-                        //show drop down
+            // img
+            //     .mousedown (function() {
+            //         img.removeClass('drag');
+            //     })
+            //     .mousemove (function() {
+            //         img.addClass('drag');
+            //     })
+            //     .mouseup (function() {
 
-                        //Moves slide that was clicked
-                        //TODO fix weird behavior
-                        carousel.trigger('to.owl.carousel', [index]);
+            //         //simulates on click
+            //         if (!img.hasClass('drag')) {
+            //             //show drop down
 
-                        //scroll page
-                        $('html, body').animate({
-                            scrollTop: $(carousel).offset().top - 50
-                        }, 500);
+            //             //Moves slide that was clicked
+            //             //TODO fix weird behavior
+            //             carousel.trigger('to.owl.carousel', [index]);
 
-                        if(!$(this).parent().hasClass('overview-active')){
-                            $('.owl-item').removeClass('overview-active');
-                            $(this).parent().addClass('overview-active');
+            //             //scroll page
+            //             $('html, body').animate({
+            //                 scrollTop: $(carousel).offset().top - 50
+            //             }, 500);
 
-                            $(".owl-item").find('.remove-this').remove();
-                        }
+            //             if(!$(this).parent().hasClass('overview-active')){
+            //                 $('.owl-item').removeClass('overview-active');
+            //                 $(this).parent().addClass('overview-active');
 
-                        if(!$(this).parent().find('.arrow').length){
-                            // var small = $('<small>').text(title);
-                            var arrow = $('<span>', {'class': 'arrow remove-this'});
+            //                 $(".owl-item").find('.remove-this').remove();
+            //             }
 
-                            // var img = $(this).parent().find('img');
-                            // img.after(arrow).after(a);
-                            // img.after(a);
-                            img.after(arrow);
+            //             if(!$(this).parent().find('.arrow').length){
+            //                 // var small = $('<small>').text(title);
+            //                 var arrow = $('<span>', {'class': 'arrow remove-this'});
 
-                            var mlen = img.width() / 2;
+            //                 // var img = $(this).parent().find('img');
+            //                 // img.after(arrow).after(a);
+            //                 // img.after(a);
+            //                 img.after(arrow);
 
-                            arrow.css("margin-left" , (mlen - 10)+"px");
+            //                 var mlen = img.width() / 2;
 
-                            //appends dropdown?
-                            append_overview( $(this) , img.data('id') );
-                        }
-                    }
-                    img.removeClass('drag');
+            //                 arrow.css("margin-left" , (mlen - 10)+"px");
 
-            });
+            //                 //appends dropdown?
+            //                 append_overview( $(this) , img.data('id') );
+            //             }
+            //         }
+            //         img.removeClass('drag');
+
+            // });
+
+            //MESSAGE : please use " on click " if you want to simulate click trigger since jquery is included in the webpage we might as well use it. it will make our life easier trust me :) 
 
             carousel.append(img);
         })
@@ -77,15 +84,23 @@ $(document).ready(function(){
             owl.owlCarousel({
             margin:-5,
             //loop: true,   //breaks events
-            autoWidth: true,
             nav: true,
             navText: ['<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>','<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>'], // need to replace with actual nav buttons
             // slideBy: 'page', //doesn't work?
             dots: false,
             lazyLoad:true,
-            //mouseDrag: false,
-            //responsiveClass:true
+            mouseDrag: false,
+            responsiveClass:true,
+            responsive : {
+                0:{
+                    items:1
+                },
+                1000:{
+                    autoWidth:true
+                }
+            }
             //TODO: Set responsive based on # items? breaks width sizing..
+            //MESSAGE : Setting autoWidth on desktop mode will fixed the width sizing on mobile
         });
 
                 // autoplay on hover over buttons doesn't work well
@@ -124,40 +139,82 @@ $(document).ready(function(){
 
     $(document).on('click' , '.tile-close' , function(){
        $(this).closest('.drop-container').fadeOut().remove();
-       $('.owl-item').removeClass('overview-active').find('.remove-this').remove();
+       $('.owl-item').removeClass('overview-active oActive').find('.remove-this').remove();
     });
 
 });
+//need to reset the hover effect when the mouse outside the carousel div
+$(document).on('mouseleave' , '.owl-carousel' , function(){
+    $('.owl-item').not('.oActive').removeClass('overview-active');
+    $(".owl-item").not('.oActive').find('.title').remove();
+});
+//on desktop view you need to hover the tiles to display the title . when clicked it will display the dropdown view
+$(document).on('mouseover' , ".tile" , open_tile);
+//on the mobile view you just need to click the tile to display the dropdown view
+$(document).on('click' , ".tile" , open_tile);
 
-// $(document).on('mouseover' , ".tile" , function(){
-//     var title = $(this).attr('alt');
+function open_tile(){
+    var title = $(this).attr('alt');
+    var img = $(this);
 
-//     if(!$(this).parent().hasClass('overview-active')){
-//         $('.owl-item').removeClass('overview-active');
-//         $(this).parent().addClass('overview-active');
+    if(!img.parent().hasClass('overview-active')){
+        $('.owl-item').not('.oActive').removeClass('overview-active');
+        img.parent().addClass('overview-active');
 
-//         $(".owl-item").find('.remove-this').remove();
-//     }
+        $(".owl-item").not('.oActive').find('.title').remove();
+    }
 
 
-//     if(!$(this).parent().find('.arrow').length){
-//         var small = $('<small>').text(title);
-//         var arrow = $('<span>', {'class': 'arrow remove-this'});
-//         var span = $('<span>').text(title);
-//         var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
+    if(!img.parent().find('.arrow').length){
+        var small = $('<small>').text(title);
+        var arrow = $('<span>', {'class': 'arrow remove-this'});
+        var span = $('<span>').text(title);
+        var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
         
+        if(!img.parent().find('.title').length){
+            img.after(a);
+        }
 
-//         var img = $(this).parent().find('img');
-//         img.after(arrow).after(a);
+        a.on('click',function(){
+             
+            $('.owl-item').removeClass('overview-active');
+            $(".owl-item").find('.title').remove();
+            
+            img.after(a);
 
-//         var mlen = img.width() / 2;
- 
-//         arrow.css("margin-left" , (mlen - 10)+"px");
+            $('.tile').parent().removeClass('oActive');
+            $('.arrow').remove();
 
-//         append_overview( $(this) , img.data('id') );
-//     }
-    
-// });
+            img.parent().addClass('oActive');
+
+            a.after(arrow);
+
+            var mlen = img.width() / 2;
+
+            arrow.css("margin-left" , (mlen - 10)+"px");
+
+            var carousel = img.closest('.owl-carousel');
+
+            carousel.trigger('to.owl.carousel', carousel.find('.tile').index(img));
+
+            $('html, body').animate({
+                scrollTop: $(carousel).offset().top - 90
+            }, 500);
+
+            append_overview( $(this) , img.data('id') );
+        });
+        
+        var windowWidth = window.screen.width < window.outerWidth ? window.screen.width : window.outerWidth;
+        var mobile = windowWidth < 500;
+
+        if(mobile){
+            //automatically trigger when its on mobile view since you need to click the title to display the dropdown view
+            a.trigger('click');
+        }    
+    }
+
+
+}
 
 function append_overview(a , id){
     var html = build_overview_window();
@@ -168,6 +225,7 @@ function append_overview(a , id){
         $('.drop-container').hide().fadeIn();
     }
 
+    //fake data
     var arr = [];
 
     for (var i = 0; i < 6; i++) {

@@ -6,8 +6,69 @@ $(document).ready(function(){
         
         slide.append(carousel);
 
+        //show image tiles and set tiles hover (show title) and onclick (show dropdown)
         $(data.manga).each(function(index, manga) {
             var img = $('<img>', {'class': 'tile', 'src': manga.src, 'alt': manga.title , 'data-id' : index});
+            var span = $('<span>').text(manga.title);
+            var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
+            
+            // TODO fix hover title flickering with on click
+            // img.mouseenter(function() {
+            //     img.after(a);
+            // });
+            // a.mouseleave(function() {
+            //     a.remove();
+            // });
+
+            img
+                .mousedown (function() {
+                    img.removeClass('drag');
+                })
+                .mousemove (function() {
+                    img.addClass('drag');
+                })
+                .mouseup (function() {
+                    //simulates on click
+                    if (!img.hasClass('drag')) {
+                        //show drop down
+
+                        //Moves slide that was clicked
+                        //TODO fix weird behavior
+                        carousel.trigger('to.owl.carousel', [index]);
+
+                        //scroll page
+                        $('html, body').animate({
+                            scrollTop: $(carousel).offset().top - 50
+                        }, 500);
+
+                        if(!$(this).parent().hasClass('overview-active')){
+                            $('.owl-item').removeClass('overview-active');
+                            $(this).parent().addClass('overview-active');
+
+                            $(".owl-item").find('.remove-this').remove();
+                        }
+
+                        if(!$(this).parent().find('.arrow').length){
+                            // var small = $('<small>').text(title);
+                            var arrow = $('<span>', {'class': 'arrow remove-this'});
+
+                            // var img = $(this).parent().find('img');
+                            // img.after(arrow).after(a);
+                            // img.after(a);
+                            img.after(arrow);
+
+                            var mlen = img.width() / 2;
+
+                            arrow.css("margin-left" , (mlen - 10)+"px");
+
+                            //appends dropdown?
+                            append_overview( $(this) , img.data('id') );
+                        }
+                    }
+                    img.removeClass('drag');
+
+            });
+
             carousel.append(img);
         })
         .promise()
@@ -15,29 +76,16 @@ $(document).ready(function(){
             var owl = $('#' + data.id + '-carousel');
             owl.owlCarousel({
             margin:-5,
-            loop: false,   //breaks title on hover sometimes
-        
+            //loop: true,   //breaks events
+            autoWidth: true,
             nav: true,
             navText: ['<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>','<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>'], // need to replace with actual nav buttons
             // slideBy: 'page', //doesn't work?
-            dots: false ,
-            lazyLoad:true ,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:true
-                },
-                600:{
-                    items:3,
-                    nav:false
-                },
-                1000:{
-                    items:8,
-                    nav:true,
-                    loop:false
-                }
-            }
+            dots: false,
+            lazyLoad:true,
+            //mouseDrag: false,
+            //responsiveClass:true
+            //TODO: Set responsive based on # items? breaks width sizing..
         });
 
                 // autoplay on hover over buttons doesn't work well
@@ -61,7 +109,7 @@ $(document).ready(function(){
     //populate fake data
     var array = [];
     for (var i = 0; i < 15; i++) {
-        array.push({'title': 'super duper awesome long title here ' + i, 'src': 'https://placehold.it/250x250&text=' + i, 'id': 'some id'});
+        array.push({'title': 'Death Marching to the Parallel World Rhapsody ' + i, 'src': 'https://placehold.it/200x250&text=' + i, 'id': 'some id'});
     }
     var newData = {"id": "new" , "manga": array};
     var trendingData = {"id": "trending" , "manga": array};
@@ -81,32 +129,35 @@ $(document).ready(function(){
 
 });
 
-$(document).on('mouseover' , ".tile" , function(){
-    var title = $(this).attr('alt');
+// $(document).on('mouseover' , ".tile" , function(){
+//     var title = $(this).attr('alt');
 
-    if(!$(this).parent().hasClass('overview-active')){
-        $('.owl-item').removeClass('overview-active');
-        $(this).parent().addClass('overview-active');
+//     if(!$(this).parent().hasClass('overview-active')){
+//         $('.owl-item').removeClass('overview-active');
+//         $(this).parent().addClass('overview-active');
 
-        $(".owl-item").find('.remove-this').remove();
-    }
+//         $(".owl-item").find('.remove-this').remove();
+//     }
 
 
-    if(!$(this).parent().find('.arrow').length){
-        var small = $('<small>').text(title);
-        var arrow = $('<span>', {'class': 'arrow remove-this'});
+//     if(!$(this).parent().find('.arrow').length){
+//         var small = $('<small>').text(title);
+//         var arrow = $('<span>', {'class': 'arrow remove-this'});
+//         var span = $('<span>').text(title);
+//         var a = $('<a>', {'class': 'title text-center remove-this' , 'href' : 'javascript:void(0);'}).append(span);
+        
 
-        var img = $(this).parent().find('img');
-        img.after(arrow);
+//         var img = $(this).parent().find('img');
+//         img.after(arrow).after(a);
 
-        var mlen = img.width() / 2;
+//         var mlen = img.width() / 2;
  
-        arrow.css("margin-left" , (mlen - 10)+"px");
+//         arrow.css("margin-left" , (mlen - 10)+"px");
 
-        append_overview( $(this) , img.data('id') );
-    }
+//         append_overview( $(this) , img.data('id') );
+//     }
     
-});
+// });
 
 function append_overview(a , id){
     var html = build_overview_window();

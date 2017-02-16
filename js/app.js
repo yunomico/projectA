@@ -89,7 +89,7 @@ $(document).ready(function(){
             // slideBy: 'page', //doesn't work?
             dots: false,
             lazyLoad:true,
-            mouseDrag: false,
+            mouseDrag: true,
             responsiveClass:true,
             responsive : {
                 0:{
@@ -145,7 +145,7 @@ $(document).ready(function(){
 });
 //need to reset the hover effect when the mouse outside the carousel div
 $(document).on('mouseleave' , '.owl-carousel' , function(){
-    $('.owl-item').not('.oActive').removeClass('overview-active');
+    $('.owl-item').removeClass('overview-active');
     $(".owl-item").not('.oActive').find('.title').remove();
 });
 //on desktop view you need to hover the tiles to display the title . when clicked it will display the dropdown view
@@ -157,8 +157,8 @@ function open_tile(){
     var title = $(this).attr('alt');
     var img = $(this);
 
-    if(!img.parent().hasClass('overview-active')){
-        $('.owl-item').not('.oActive').removeClass('overview-active');
+    if(!img.parent().hasClass('overview-active') && !img.parent().hasClass('oActive')){
+        $('.owl-item').removeClass('overview-active');
         img.parent().addClass('overview-active');
 
         $(".owl-item").not('.oActive').find('.title').remove();
@@ -176,11 +176,6 @@ function open_tile(){
         }
 
         a.on('click',function(){
-             
-            $('.owl-item').removeClass('overview-active');
-            $(".owl-item").find('.title').remove();
-            
-            img.after(a);
 
             $('.tile').parent().removeClass('oActive');
             $('.arrow').remove();
@@ -191,7 +186,7 @@ function open_tile(){
 
             var mlen = img.width() / 2;
 
-            arrow.css("margin-left" , (mlen - 10)+"px");
+            arrow.css("margin-left" , (mlen - 15)+"px");
 
             var carousel = img.closest('.owl-carousel');
 
@@ -202,6 +197,9 @@ function open_tile(){
             }, 500);
 
             append_overview( $(this) , img.data('id') );
+
+            $('.owl-item').not('.oActive').removeClass('overview-active');
+            $(".owl-item").not('.oActive').find('.title').remove();
         });
         
         var windowWidth = window.screen.width < window.outerWidth ? window.screen.width : window.outerWidth;

@@ -88,6 +88,7 @@ $(document).ready(function(){
             navText: ['<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>','<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>'], // need to replace with actual nav buttons
             // slideBy: 'page', //doesn't work?
             dots: false,
+            center: true,
             lazyLoad:true,
             mouseDrag: true,
             responsiveClass:true,
@@ -96,7 +97,19 @@ $(document).ready(function(){
                     items:1
                 },
                 1000:{
-                    autoWidth:true
+                    autoWidth:true,
+                    items: 6,
+                    startPosition: 4
+                },
+                1500: {
+                    autoWidth:true,
+                    items: 9,
+                    startPosition: 5
+                },
+                1900: {
+                    autoWidth:true,
+                    items: 12,
+                    startPosition: 6
                 }
             }
             //TODO: Set responsive based on # items? breaks width sizing..

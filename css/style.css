@@ -233,13 +233,17 @@ footer{
   }
 
   .owl-carousel .owl-stage-outer{
-    padding: 0 10px 41px 26px;
+    padding: 40px 10px 41px 26px;
   }
   .owl-prev {
       left: -50px;
   }
   .owl-next {
       right: -50px;
+  }
+
+  #new h4, #trending h4, #read-again h4 {
+    margin-bottom: -40px;
   }
   /*END TILES*/
 

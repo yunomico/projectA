@@ -6,7 +6,7 @@ Author: Makimaki
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 html , body{
-  background-color: #282827;
+  background-color: #222;
   overflow: auto;
 }
 *{
@@ -33,7 +33,7 @@ footer{
 
 .owl-carousel {
     position: relative;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     margin-bottom: 10px;
 }
 
@@ -63,42 +63,48 @@ footer{
   padding-right: 2px;
 }
 
-body::-webkit-scrollbar {
-  width: 12px;
-}
-
-
-/* Let's get this party started */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-/*        -webkit-border-radius: 10px;
-border-radius: 10px;*/
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-/*        -webkit-border-radius: 10px;
-border-radius: 10px;*/
-background:#ddd; 
--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
-::-webkit-scrollbar-thumb:window-inactive {
-  background: #ddd; 
+.app-wrap .c-navbar{
+  border-radius: 0px;
+  border:none;
+  border-color: transparent;
+  margin-bottom: 0px;
 }
 
 /* Large desktop */
 @media (min-width: 1200px) { 
+  body::-webkit-scrollbar {
+    width: 12px;
+  }
+
+
+  /* Let's get this party started */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  /*        -webkit-border-radius: 10px;
+  border-radius: 10px;*/
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+  /*        -webkit-border-radius: 10px;
+  border-radius: 10px;*/
+  background:#ddd; 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background: #ddd; 
+  }
   .carousel {
-    height: 550px;
+    height: 500px;
     margin-bottom: 60px;
   }
   .carousel .item {
-    height: 550px;
+    height: 500px;
     background-color: #777;
   }
   .carousel-inner > .item > img {
@@ -113,76 +119,10 @@ background:#ddd;
   .app-container .app-wrap {
     margin: 0px 70px;
   }
-  /* HEADER */
-  header .menu-btn{
-    display: none;
-  }
-  header{
-    margin: 0px !important;
-    padding: 10px 20px;
-    z-index: 2;
-    position: fixed;
-    width: 100%;
-    background-color: transparent;
-    -webkit-transition: background-color 0.4s ease-in-out;
-    transition: background-color 0.4s ease-in-out;
-  }
-  header.withbackground{
-    background-color: rgba(26,26,25,1);
-  }
-  header .logo{
-    text-decoration: none;
-    color: #CC0000;
-  }
-  header .logo > h2{
-    font-weight: bold;;
-  }
-  header .search{
-    padding: 4px;
-  }
 
-  header .search{
-    width: 130px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+  .tiles-container .app-wrap {
+    /*width: 70%;*/
   }
-
-  header .search:focus{
-    width: 100%;
-  }
-  header .menu{
-    text-align: right;
-  }
-  header .menu > ul{
-    list-style-type: none;
-    padding: 0px;
-    margin-right: 20px;
-  }
-  header .menu > ul > li:first-child{
-    width: 250px;
-  }
-  header .menu > ul > li.registered > a > img{
-    width: 25px;
-    margin: 0px 2px;
-  }
-  header .menu > ul > li{
-    display: inline-block;
-    padding: 8px 15px;
-    border: 2px solid transparent;
-    cursor: pointer;
-  }
-  header .menu > ul > li > a{
-    text-decoration: none;
-    color:white;
-  }
-
-  header .menu > ul > li:not(.no-hover):hover , header .menu > ul > li.active{
-    border-bottom-color: #CC0000;
-  }
-  header .menu > ul > li:not(.no-hover):hover > a , header .menu > ul > li.active > a{
-   /* color:#CC0000;*/
-  }
-  /* END HEADER */
 
 
   /* BANNER */
@@ -206,7 +146,7 @@ background:#ddd;
     background: linear-gradient(to right, black , rgba(0,0,0,0.1)); /* Standard syntax */
   }
   #banner > .banner-container{
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 50px;
     width: 35%;
   }
@@ -240,15 +180,22 @@ background:#ddd;
     margin-bottom : 50px;
     color:white;
   }
-  .owl-item:hover > .tile , .overview-active > .tile{
+
+  .owl-item:hover > .tile , .overview-active > .tile , .oActive > .tile{
       z-index:3;
       height: 260px;
       transform: scale(1.1);
       border: 3px solid #FFF;
   }
+  .oActive{
+    z-index: 100;
+  }
+  .oActive > .tile{
+    transform: scale(1.3) !important;
+  }
   .tile {
-    width: 200px !important;
-    height: 300px !important;
+    width: 175px !important;
+    height: 250px !important;
     z-index: 1;
     position: relative;
     cursor: pointer;
@@ -264,32 +211,39 @@ background:#ddd;
     top: 13px;
     height: 98%;
     background-color: rgba(0,0,0,0.6);
-    width: 193px;
+    width: 168px;
     margin: 3px 2px;
     padding: 12px 8px;
     font-size: 15px;
-    line-height: 300px;
+    line-height: 200px;
     font-weight: bold;
   }
   .title > span {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
-}
-  .owl-item:hover > .title , .overview-active > .title{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+  .owl-item:hover > .title , .overview-active > .title , .oActive > .title{
     transform: scale(1.1);
     margin: -10px 3px;
     color:#FFF;
   }
+  .oActive > .title{
+    transform: scale(1.3) !important;
+  }
 
   .owl-carousel .owl-stage-outer{
-    padding: 15px 10px 20px 10px;
+    padding: 40px 10px 41px 26px;
   }
   .owl-prev {
       left: -50px;
   }
   .owl-next {
       right: -50px;
+  }
+
+  #new h4, #trending h4, #read-again h4 {
+    margin-bottom: -40px;
   }
   /*END TILES*/
 
@@ -298,7 +252,7 @@ background:#ddd;
     content: "";
     width: 0;
     height: 0;
-    margin-top: 15px;
+    margin-top: 36px;
     border-style: solid;
     border-width: 5px 10px 0 10px;
     border-color: #FFF transparent transparent transparent;
@@ -395,10 +349,10 @@ background:#ddd;
     display: none;
   }
   .carousel {
-    height: 260px;
+    height: 270px;
   }
   .carousel .item {
-    height: 260px;
+    height: 270px;
     background-color: #777;
   }
   .carousel-inner > .item > img {
@@ -432,67 +386,6 @@ background:#ddd;
   }
   .owl-next {
       right: -10px;
-  }
-  header{
-    margin: 0px !important;
-    padding: 0px 0px;
-    z-index: 2;
-    width: 100%;
-    background-color: transparent;
-    -webkit-transition: background-color 0.4s ease-in-out;
-    transition: background-color 0.4s ease-in-out;
-  }
-
-  header > div > div:first-child{
-    display: block;
-    margin: 0px 10px;
-  }
-  header > div > div:first-child > a:first-child{
-    float: left;
-    text-decoration: none;
-    color: #CC0000;
-  }
-
-  header > div > div:first-child > a:first-child > h2{
-    font-weight: bold;
-  }
-  header > div > div:first-child > a:last-child{
-    float: right;
-    margin:22px 15px;
-    font-size: 20px;
-    color: #CC0000;
-  }
-  header > div > div:last-child{
-    background-color: #1a1a19;
-    margin: 0px;
-    display: none;
-  }
-  header > div > div:last-child > div{
-    margin: 0px;
-    padding: 10px;
-  }
-  header > div > div:last-child .menu > ul{
-    list-style-type: none;
-    display: block;
-    padding: 0px;
-    text-align: center;
-  }
-  header > div > div:last-child .menu > ul > li{
-    margin: 2px 0px;
-  }
-  header > div > div:last-child .menu > ul > li .search{
-    width: 100%;
-  }
-  header > div > div:last-child .menu > ul > li a{
-    text-decoration: none;
-    color:white;
-  }
-
-  header > div > div:last-child .menu > ul > li a:hover{
-    color:#CC0000;
-  }
-  header > div > div:last-child.active{
-    display: block;
   }
 
 

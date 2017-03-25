@@ -22,27 +22,52 @@
   </head>
   <body>
     <div class="app-container">
-        <header class="row ">
-          <div class="app-wrap">
-            <div class="col-lg-2 row col-xs-12">
-              <a href="JavaScript:void(0);" class="logo"><h2>MANGAFLIX</h2></a>
-              <a href="JavaScript:void(0);" class="menu-btn"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
-            </div>
-            <div class="col-lg-10 col-xs-12 menu-container">
-              <div class="row">
-                  <nav class="menu">
-                    <ul>
-                      <li class="no-hover"><input type="text" name="search" class="search" placeholder="Search.."></li>
-                      <li class="active"><a href="JavaScript:void(0);"><span>Top Releases</span></a></li>
-                      <li><a href="JavaScript:void(0);"><span>Manga List</span></a></li>
-                      <li class="login"><a href="JavaScript:void(0);"><span>Login</span></a></li>
-                      <!-- <li class="no-hover registered"><a href="JavaScript:void(0);"><img src="images/profile.png"><span>Maki</span></a></li> -->
-                    </ul>
-                  </nav>
+        <div class="app-wrap">
+          <nav class="navbar navbar-inverse c-navbar">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                  <!-- <img alt="Brand" src="..."> -->
+                  MANGAFLIX
+                </a>
               </div>
-            </div>
-          </div>
-        </header>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#">Recently Added</a></li>
+                  <li><a href="#">Manga Lists</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account Name <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Profile</a></li>
+                      <li><a href="#">Bookmark</a></li>
+                      <li><a href="#">Change Password</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#">Logout</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </span>
+                  </div><!-- /input-group -->
+                </form>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+        </div>
 
         <!-- Carousel
         ================================================== -->
@@ -123,14 +148,14 @@
 
         <div class="tiles-container">
             <div id="new" class="row app-wrap container-fluid">
-                <h1>New Releases</h1>
+                <h4>NEW RELEASES</h4>
             </div>
             <div id="trending" class="row app-wrap container-fluid">
-                <h1>Trending</h1>
+                <h4>TRENDING</h4>
             </div>
 
             <div id="read-again" class="row app-wrap container-fluid">
-                <h1>Read It Again</h1>
+                <h4>READ IT AGAIN</h4>
             </div>
         </div>
 

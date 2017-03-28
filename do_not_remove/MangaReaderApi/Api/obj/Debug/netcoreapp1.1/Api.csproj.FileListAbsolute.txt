@@ -1,0 +1,18 @@
+C:\Users\matt.aldaco\Documents\Visual Studio 2017\Projects\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.deps.json
+C:\Users\matt.aldaco\Documents\Visual Studio 2017\Projects\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.runtimeconfig.json
+C:\Users\matt.aldaco\Documents\Visual Studio 2017\Projects\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.runtimeconfig.dev.json
+C:\Users\matt.aldaco\Documents\Visual Studio 2017\Projects\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.dll
+C:\Users\matt.aldaco\Documents\Visual Studio 2017\Projects\MangaReaderApi\Api\obj\Debug\netcoreapp1.1\Api.csprojResolveAssemblyReference.cache
+C:\Users\matt.aldaco\Documents\Visual Studio 2017\Projects\MangaReaderApi\Api\obj\Debug\netcoreapp1.1\Api.AssemblyInfo.cs
+C:\Users\matt.aldaco\Documents\Visual Studio 2017\Projects\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.pdb
+C:\Users\matt.aldaco\Documents\Visual Studio 2017\Projects\MangaReaderApi\Api\obj\Debug\netcoreapp1.1\Api.dll
+C:\Users\matt.aldaco\Documents\Visual Studio 2017\Projects\MangaReaderApi\Api\obj\Debug\netcoreapp1.1\Api.pdb
+C:\xampp\htdocs\projectA\do_not_remove\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.deps.json
+C:\xampp\htdocs\projectA\do_not_remove\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.runtimeconfig.json
+C:\xampp\htdocs\projectA\do_not_remove\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.runtimeconfig.dev.json
+C:\xampp\htdocs\projectA\do_not_remove\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.dll
+C:\xampp\htdocs\projectA\do_not_remove\MangaReaderApi\Api\bin\Debug\netcoreapp1.1\Api.pdb
+C:\xampp\htdocs\projectA\do_not_remove\MangaReaderApi\Api\obj\Debug\netcoreapp1.1\Api.csprojResolveAssemblyReference.cache
+C:\xampp\htdocs\projectA\do_not_remove\MangaReaderApi\Api\obj\Debug\netcoreapp1.1\Api.AssemblyInfo.cs
+C:\xampp\htdocs\projectA\do_not_remove\MangaReaderApi\Api\obj\Debug\netcoreapp1.1\Api.dll
+C:\xampp\htdocs\projectA\do_not_remove\MangaReaderApi\Api\obj\Debug\netcoreapp1.1\Api.pdb

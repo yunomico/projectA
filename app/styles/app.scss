@@ -1,0 +1,12 @@
+@import "imports";
+
+body{
+  background: $primary-background;
+  color: $primary-text;
+  direction: ltr;
+  font-family: $primary-font;
+  font-size: 16px;
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}

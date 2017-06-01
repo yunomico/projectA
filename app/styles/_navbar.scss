@@ -1,0 +1,172 @@
+.navbar {
+  &.navbar-custom {
+    background: transparent;
+
+    .navbar-header {
+      button {
+        &.navbar-toggle {
+          border-color: $gray-27;
+          &:focus, &:hover{
+            background: $gray;
+          }
+
+          span {
+            &.icon-bar {
+              background: $gray-27;
+              &:focus, &:hover{
+                background: $gray;
+              }
+            }
+          }
+        }
+      }
+
+      a {
+        &.navbar-brand {
+          color: $secondary-highlight;
+          font-weight: bold;
+          transition: all 0.5s ease-in-out;
+          font-family: $branding-font;
+          @include tablet {
+            height: 25px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 0;
+            padding: 0;
+            font-size: 30px;
+            line-height: 28px;
+          }
+
+          &:focus,
+          &:hover {
+            cursor: pointer;
+            color: darken($secondary-highlight, 5%);
+          }
+        }
+      }
+    }
+
+    .navbar-content {
+      .nav {
+        &.navbar-nav {
+          .search-bar-container {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            float: left;
+            .search-bar {
+              height: 40px;
+              display: flex;
+              padding: 5px 0;
+              margin: 11px;
+              width: 150px;
+              transition: all 0.35s;
+              float: right;
+              &:hover{
+                width: 100%;
+              }
+              label {
+                display: none;
+              }
+
+              input {
+                &[type=search] {
+                  &.search-field {
+                    width: 100%;
+                    background: $very-dark-gray;
+                    color: $primary-text;
+                    padding: 5px;
+                    border: none;
+
+                    &:focus {
+                      outline: none;
+                    }
+                  }
+                }
+              }
+
+              button {
+                &[type=submit] {
+                  &.search-submit {
+                    -webkit-appearance: none;
+                    border: none;
+                    background: $very-dark-gray;
+                    position: relative;
+                    margin-bottom: 0;
+                    height: auto;
+                    width: 30px;
+                    right: 20px;
+                    display: block;
+                    float: right;
+                    outline: none;
+
+                    &:focus {
+                      outline: none;
+                    }
+
+                    .glyphicon {
+                      top: 3px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          // .search-bar{
+          //   margin: 15px 0px;
+          //   display: inline-block;
+          //   height: 30px;
+          //   float: left;
+          //   padding: 0;
+          //   position: relative;
+          //   form{
+          //     &.search-bar-form{
+          //       width: 0px;
+          //       position: absolute;
+          //       top: 0;
+          //       right: 0;
+          //       background: none;
+          //       z-index: 3;
+          //       transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+          //       .search-submit{
+          //
+          //       }
+          //       .search-string{
+          //         width: 0px;
+          //         position: absolute;
+          //         top: 0;
+          //         right: 0;
+          //         background: none;
+          //         z-index: 3;
+          //         transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+          //       }
+          //     }
+          //   }
+          // }
+          li {
+            &:focus,
+            &:hover {
+              transition: all 0.5s ease-in-out;
+              cursor: pointer;
+
+              a {
+                color: darken($whitesmoke,25%);
+                box-shadow: 0 2px darken($secondary-highlight, 5%);
+              }
+            }
+
+            a {
+              transition: all 0.5s ease-in-out;
+              background: transparent;
+              color: $whitesmoke;
+              @include tablet {
+                padding: 5px 0;
+                margin: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

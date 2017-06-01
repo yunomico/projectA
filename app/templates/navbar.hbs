@@ -1,0 +1,29 @@
+<nav class="navbar navbar-custom navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sitenavbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'index' class="navbar-brand"}}QC Manga{{/link-to}}
+    </div>
+
+    <div class="navbar-content collapse navbar-collapse" id="sitenavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <div class="search-bar-container">
+          <div class="search-bar form">
+            <input type="search" id="header-search-bar" name="query" value="" placeholder="Search" autocomplete="off" class="search-field" maxlength="255">
+            <button type="submit" class="search-submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+            <label for="header-search-bar">Search QC Manga</label>
+          </div>
+        </div>
+        {{#link-to 'index' tagName="li"}}<a href="">Top Releases</a>{{/link-to}}
+        {{#link-to 'index' tagName="li"}}<a href="">Manga List</a>{{/link-to}}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
